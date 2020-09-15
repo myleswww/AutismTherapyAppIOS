@@ -10,9 +10,14 @@ import UIKit
 
 class QuizGameViewController: UIViewController {
 
+    @IBOutlet weak var progressview: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        progressview.transform = progressview.transform.scaledBy(x: 1, y: 5
+            
+        )
         // Do any additional setup after loading the view.
     }
     

@@ -109,18 +109,9 @@
 		FD974EF12511225D006383D6 /* RiversideIOS */ = {
 			isa = PBXGroup;
 			children = (
-				FD974EF22511225D006383D6 /* AppDelegate.swift */,
-				FD974EF42511225D006383D6 /* SceneDelegate.swift */,
-				FD974EF62511225D006383D6 /* ViewController.swift */,
-				FD974EF82511225D006383D6 /* Main.storyboard */,
-				FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */,
-				FD974F2925113A00006383D6 /* QuizGameViewController.swift */,
-				FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */,
-				FD974F252511257F006383D6 /* QuizLandingViewController.swift */,
-				FD974EFE2511225E006383D6 /* Assets.xcassets */,
-				FD974F002511225E006383D6 /* LaunchScreen.storyboard */,
-				FD974F032511225E006383D6 /* Info.plist */,
-				FD974EFB2511225D006383D6 /* RiversideIOS.xcdatamodeld */,
+				FD974F2D25114BB5006383D6 /* View */,
+				FD974F2E25114BCA006383D6 /* Controller */,
+				FD974F2F25114C9A006383D6 /* SupportingFiles */,
 			);
 			path = RiversideIOS;
 			sourceTree = "<group>";
@@ -141,6 +132,39 @@
 				FD974F192511225F006383D6 /* Info.plist */,
 			);
 			path = RiversideIOSUITests;
+			sourceTree = "<group>";
+		};
+		FD974F2D25114BB5006383D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FD974EFE2511225E006383D6 /* Assets.xcassets */,
+				FD974EF82511225D006383D6 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD974F2E25114BCA006383D6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FD974EF22511225D006383D6 /* AppDelegate.swift */,
+				FD974EF42511225D006383D6 /* SceneDelegate.swift */,
+				FD974EF62511225D006383D6 /* ViewController.swift */,
+				FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */,
+				FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */,
+				FD974F252511257F006383D6 /* QuizLandingViewController.swift */,
+				FD974F2925113A00006383D6 /* QuizGameViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FD974F2F25114C9A006383D6 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FD974EFB2511225D006383D6 /* RiversideIOS.xcdatamodeld */,
+				FD974F002511225E006383D6 /* LaunchScreen.storyboard */,
+				FD974F032511225E006383D6 /* Info.plist */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
