@@ -16,6 +16,10 @@
 		FD974F022511225E006383D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD974F002511225E006383D6 /* LaunchScreen.storyboard */; };
 		FD974F0D2511225F006383D6 /* RiversideIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F0C2511225F006383D6 /* RiversideIOSTests.swift */; };
 		FD974F182511225F006383D6 /* RiversideIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F172511225F006383D6 /* RiversideIOSUITests.swift */; };
+		FD974F262511257F006383D6 /* QuizLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F252511257F006383D6 /* QuizLandingViewController.swift */; };
+		FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */; };
+		FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2925113A00006383D6 /* QuizGameViewController.swift */; };
+		FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		FD974F132511225F006383D6 /* RiversideIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiversideIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD974F172511225F006383D6 /* RiversideIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiversideIOSUITests.swift; sourceTree = "<group>"; };
 		FD974F192511225F006383D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD974F252511257F006383D6 /* QuizLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLandingViewController.swift; sourceTree = "<group>"; };
+		FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothLandingViewController.swift; sourceTree = "<group>"; };
+		FD974F2925113A00006383D6 /* QuizGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameViewController.swift; sourceTree = "<group>"; };
+		FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +113,10 @@
 				FD974EF42511225D006383D6 /* SceneDelegate.swift */,
 				FD974EF62511225D006383D6 /* ViewController.swift */,
 				FD974EF82511225D006383D6 /* Main.storyboard */,
+				FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */,
+				FD974F2925113A00006383D6 /* QuizGameViewController.swift */,
+				FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */,
+				FD974F252511257F006383D6 /* QuizLandingViewController.swift */,
 				FD974EFE2511225E006383D6 /* Assets.xcassets */,
 				FD974F002511225E006383D6 /* LaunchScreen.storyboard */,
 				FD974F032511225E006383D6 /* Info.plist */,
@@ -263,8 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD974EF72511225D006383D6 /* ViewController.swift in Sources */,
+				FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */,
+				FD974F262511257F006383D6 /* QuizLandingViewController.swift in Sources */,
 				FD974EFD2511225D006383D6 /* RiversideIOS.xcdatamodeld in Sources */,
+				FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */,
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
+				FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */,
 				FD974EF52511225D006383D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
