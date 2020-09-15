@@ -172,9 +172,17 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OgL-Jb-QFF" userLabel="Picture View">
                                         <rect key="frame" x="0.0" y="77" width="375" height="258"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sadface2" translatesAutoresizingMaskIntoConstraints="NO" id="dv4-J1-RpM">
+                                                <rect key="frame" x="15" y="15" width="345" height="228"/>
+                                            </imageView>
+                                        </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="dv4-J1-RpM" secondAttribute="bottom" constant="15" id="2GT-ND-J4c"/>
                                             <constraint firstAttribute="width" secondItem="OgL-Jb-QFF" secondAttribute="height" multiplier="125:86" id="ICd-Se-xc4"/>
+                                            <constraint firstAttribute="trailing" secondItem="dv4-J1-RpM" secondAttribute="trailing" constant="15" id="Sl4-As-msH"/>
+                                            <constraint firstItem="dv4-J1-RpM" firstAttribute="top" secondItem="OgL-Jb-QFF" secondAttribute="top" constant="15" id="a0K-lA-V8F"/>
+                                            <constraint firstItem="dv4-J1-RpM" firstAttribute="leading" secondItem="OgL-Jb-QFF" secondAttribute="leading" constant="15" id="u3P-yy-YAe"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="as8-Vd-U8O" userLabel="Answer View">
@@ -183,35 +191,38 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="gMb-SI-dTL">
                                                 <rect key="frame" x="50" y="28" width="275" height="276"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raw-J9-Rgi">
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" restorationIdentifier="1" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raw-J9-Rgi">
                                                         <rect key="frame" x="0.0" y="0.0" width="275" height="48"/>
                                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                        <state key="normal" title="Answer1">
+                                                        <state key="normal" title="Option1">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="wVX-UB-SQQ" eventType="touchUpInside" id="dwR-Vu-71K"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vC-Qr-BRF">
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" restorationIdentifier="2" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vC-Qr-BRF">
                                                         <rect key="frame" x="0.0" y="76" width="275" height="48"/>
                                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                        <state key="normal" title="Answer2">
+                                                        <state key="normal" title="Option2">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-aO-PBi">
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" restorationIdentifier="3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-aO-PBi">
                                                         <rect key="frame" x="0.0" y="152" width="275" height="48"/>
                                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                        <state key="normal" title="Answer3">
+                                                        <state key="normal" title="Option3">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moR-BD-JKc">
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" restorationIdentifier="4" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moR-BD-JKc">
                                                         <rect key="frame" x="0.0" y="228" width="275" height="48"/>
                                                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                        <state key="normal" title="Answer4">
+                                                        <state key="normal" title="Option4">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                     </button>
@@ -267,7 +278,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="hgf-xp-fjh"/>
                     <connections>
+                        <outlet property="option1" destination="raw-J9-Rgi" id="eg3-W9-WKD"/>
+                        <outlet property="option2" destination="3vC-Qr-BRF" id="rfc-Xg-kv5"/>
+                        <outlet property="option3" destination="Osi-aO-PBi" id="7zV-1C-Gax"/>
+                        <outlet property="option4" destination="moR-BD-JKc" id="2SE-4F-N3F"/>
                         <outlet property="progressview" destination="uX0-aU-czR" id="aDA-LX-noP"/>
+                        <outlet property="questionCounter" destination="hkh-E6-0Qa" id="ms0-Cq-Phd"/>
+                        <outlet property="questionView" destination="dv4-J1-RpM" id="iNl-t5-IJU"/>
+                        <outlet property="scoreCounter" destination="ik1-nz-tbU" id="gXL-e3-6ui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coJ-FJ-XPa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -302,4 +320,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Hpb-gH-rFC"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="sadface2" width="259" height="194"/>
+    </resources>
 </document>
