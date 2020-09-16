@@ -173,7 +173,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OgL-Jb-QFF" userLabel="Picture View">
                                         <rect key="frame" x="0.0" y="77" width="375" height="258"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sadface2" translatesAutoresizingMaskIntoConstraints="NO" id="dv4-J1-RpM">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sad2" translatesAutoresizingMaskIntoConstraints="NO" id="dv4-J1-RpM">
                                                 <rect key="frame" x="15" y="15" width="345" height="228"/>
                                             </imageView>
                                         </subviews>
@@ -209,6 +209,9 @@
                                                         <state key="normal" title="Option2">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="wVX-UB-SQQ" eventType="touchUpInside" id="Hgb-sG-BnT"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" restorationIdentifier="3" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osi-aO-PBi">
                                                         <rect key="frame" x="0.0" y="152" width="275" height="48"/>
@@ -217,6 +220,9 @@
                                                         <state key="normal" title="Option3">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="wVX-UB-SQQ" eventType="touchUpInside" id="pMh-oh-3bE"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" restorationIdentifier="4" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moR-BD-JKc">
                                                         <rect key="frame" x="0.0" y="228" width="275" height="48"/>
@@ -225,6 +231,9 @@
                                                         <state key="normal" title="Option4">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="answerPressed:" destination="wVX-UB-SQQ" eventType="touchUpInside" id="I90-aI-ruH"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -284,7 +293,7 @@
                         <outlet property="option4" destination="moR-BD-JKc" id="2SE-4F-N3F"/>
                         <outlet property="progressview" destination="uX0-aU-czR" id="aDA-LX-noP"/>
                         <outlet property="questionCounter" destination="hkh-E6-0Qa" id="ms0-Cq-Phd"/>
-                        <outlet property="questionView" destination="dv4-J1-RpM" id="iNl-t5-IJU"/>
+                        <outlet property="questionView" destination="dv4-J1-RpM" id="GVc-gW-dGz"/>
                         <outlet property="scoreCounter" destination="ik1-nz-tbU" id="gXL-e3-6ui"/>
                     </connections>
                 </viewController>
@@ -321,6 +330,6 @@
         <segue reference="Hpb-gH-rFC"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="sadface2" width="259" height="194"/>
+        <image name="sad2" width="259" height="194"/>
     </resources>
 </document>

@@ -20,6 +20,8 @@
 		FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */; };
 		FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2925113A00006383D6 /* QuizGameViewController.swift */; };
 		FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */; };
+		FDEF42CD2511A48B00B27324 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CC2511A48B00B27324 /* Question.swift */; };
+		FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CE2511A60000B27324 /* QuestionBank.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothLandingViewController.swift; sourceTree = "<group>"; };
 		FD974F2925113A00006383D6 /* QuizGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameViewController.swift; sourceTree = "<group>"; };
 		FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothGameViewController.swift; sourceTree = "<group>"; };
+		FDEF42CC2511A48B00B27324 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		FDEF42CE2511A60000B27324 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FD974F032511225E006383D6 /* Info.plist */,
+				FDEF42CB2511A42C00B27324 /* Model */,
 				FD974F2D25114BB5006383D6 /* View */,
 				FD974F2E25114BCA006383D6 /* Controller */,
 				FD974F2F25114C9A006383D6 /* SupportingFiles */,
@@ -165,6 +170,15 @@
 				FD974F002511225E006383D6 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FDEF42CB2511A42C00B27324 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDEF42CC2511A48B00B27324 /* Question.swift */,
+				FDEF42CE2511A60000B27324 /* QuestionBank.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +315,8 @@
 				FD974EF72511225D006383D6 /* ViewController.swift in Sources */,
 				FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */,
 				FD974F262511257F006383D6 /* QuizLandingViewController.swift in Sources */,
+				FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */,
+				FDEF42CD2511A48B00B27324 /* Question.swift in Sources */,
 				FD974EFD2511225D006383D6 /* RiversideIOS.xcdatamodeld in Sources */,
 				FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */,
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
