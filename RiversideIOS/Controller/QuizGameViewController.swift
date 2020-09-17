@@ -2,7 +2,7 @@
 //  QuizGameViewController.swift
 //  RiversideIOS
 //
-//  Created by Mom on 9/15/20.
+//  Created by Nicole Selig on 9/15/20.
 //  Copyright © 2020 Butler University EPICS. All rights reserved.
 //
 
@@ -31,8 +31,9 @@ class QuizGameViewController: UIViewController {
     var score: Int = 0
     var selectedAnswer: String = ""
     var numbers: [Int] = []
-    
-    
+    var newQuestion: Question!
+    var questionObj: Question!
+    var rightAnswer: String = ""
     
     //viewdidload
     override func viewDidLoad() {
@@ -40,49 +41,56 @@ class QuizGameViewController: UIViewController {
         
         //this makes the progress bar bigger
         progressview.transform = progressview.transform.scaledBy(x: 1, y: 5)
+       
         //deciding what questions we are going to pull
         //repetitions = how many questions
         //maxValue = how many pictures we have
         getArrayOfRandomNumbers(repetitions:10, maxValue: 12)
         
         updateQuestion()
-        
-        
-        // Do any additional setup after loading the view.
+        rightAnswer = questionObj.correctAnswer
     }
     
-    //all buttons are referenced to this function
-    //to reference any button, open up the story board, click on the assistant button, and control-click and drag the button into the code
-    @IBAction func answerPressed(_ sender: UIButton) {
-        
-        //control flow for buttons
-        switch sender {
-            case option1:
-                print("option1")
-                break
-            case option2:
-                print("option2")
-                break
-            case option3:
-                print("option3")
-                break
-            case option4:
-                print("option4")
-                break
-            default:
-                break
-        }
-    }
+  
     
     //loads a new question image into the UIview
     func updateQuestion(){
-        questionView.image = UIImage(named: questionBank.list[numbers[questionNumber]].questionImage)
-       
+        //set the question object
+        newQuestion = questionBank.list[numbers[questionNumber]]
+        questionObj = Question(questionImage: newQuestion.questionImage, correctAnswer: newQuestion.correctAnswer)
+        
+        //set the image
+        questionView.image = UIImage(named: questionObj.questionImage)
+        
+        //set the buttons
+        let correctAnswerPlacement = arc4random_uniform(4) + 1
+        
+        let answers:[String] = ["happy", "sad", "anger", "disgust", "surprised", "neutral"]
+        
+        for i in 1...4 {
+            
+            //create a button reference
+            let button = view.viewWithTag(i) as! UIButton
+            
+            if i == correctAnswerPlacement {
+                button.setTitle(newQuestion.correctAnswer, for: .normal)
+            }
+            else {
+                var answersIndex = Int(arc4random_uniform(UInt32(answers.count)) + 1)
+                while answers[answersIndex - 1] == newQuestion.correctAnswer {
+                    answersIndex = Int(arc4random_uniform(UInt32(answers.count)) + 1)
+                }
+                do {
+                    button.setTitle(answers[answersIndex - 1], for: .normal)
+                }
+                
+            }
+        }
     }
     
     //generates an array of random numbers, the size is the amount of questions in a game
     //...like pulling questions randomly from the bank
-    func getArrayOfRandomNumbers(repetitions: Int, maxValue: Int) -> [Int]{
+    func getArrayOfRandomNumbers(repetitions: Int, maxValue: Int) {
         
         guard maxValue >= repetitions
             else {
@@ -98,7 +106,6 @@ class QuizGameViewController: UIViewController {
             numbers.append(n)
         }
         print(numbers)
-        return numbers
     }
     
     //helper function that generates a random number
@@ -106,16 +113,19 @@ class QuizGameViewController: UIViewController {
         return Int(arc4random_uniform(UInt32(maxValue)))
     }
     
- 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //all buttons are referenced to this function
+    //to reference any button, open up the story board, click on the assistant button, and control-click and drag the button into the code
+    @IBAction func answerPressed(_ sender: UIButton) {
+        rightAnswer = questionObj.correctAnswer
+        //control flow for buttons
+        if sender.titleLabel?.text == rightAnswer {
+            print("CORRECT")
+            questionNumber = questionNumber + 1
+            updateQuestion()
+        }
+        else{
+            print("WRONG")
+        }
     }
-    */
 
 }
