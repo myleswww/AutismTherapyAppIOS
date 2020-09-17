@@ -9,6 +9,9 @@
 import UIKit
 
 class QuizGameViewController: UIViewController {
+    
+    //import QuizLogic Class
+    var quizLogic: QuizLogic?
 
     //UI outlets
     @IBOutlet weak var progressview: UIProgressView!
@@ -73,7 +76,8 @@ class QuizGameViewController: UIViewController {
     
     //loads a new question image into the UIview
     func updateQuestion(){
-        questionView.image = UIImage(contentsOfFile: questionBank.list[numbers[questionNumber]].questionImage)
+        questionView.image = UIImage(named: questionBank.list[numbers[questionNumber]].questionImage)
+       
     }
     
     //generates an array of random numbers, the size is the amount of questions in a game
