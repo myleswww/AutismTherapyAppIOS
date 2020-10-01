@@ -34,6 +34,7 @@ class QuizGameViewController: UIViewController {
     var newQuestion: Question!
     var questionObj: Question!
     var rightAnswer: String = ""
+    let answers:[String] = ["happy", "sad", "angry", "disgust", "surprised", "neutral"]
     
     //viewdidload
     override func viewDidLoad() {
@@ -58,14 +59,14 @@ class QuizGameViewController: UIViewController {
         //set the question object
         newQuestion = questionBank.list[numbers[questionNumber]]
         questionObj = Question(questionImage: newQuestion.questionImage, correctAnswer: newQuestion.correctAnswer)
-        
+        var usedChoices: [String] = []
         //set the image
         questionView.image = UIImage(named: questionObj.questionImage)
         
         //set the buttons
         let correctAnswerPlacement = arc4random_uniform(4) + 1
         
-        let answers:[String] = ["happy", "sad", "anger", "disgust", "surprised", "neutral"]
+        
         
         for i in 1...4 {
             
@@ -74,18 +75,33 @@ class QuizGameViewController: UIViewController {
             
             if i == correctAnswerPlacement {
                 button.setTitle(newQuestion.correctAnswer, for: .normal)
+                usedChoices.append(newQuestion.correctAnswer)
+                print("usedChoices = ")
+                print(usedChoices)
             }
             else {
-                var answersIndex = Int(arc4random_uniform(UInt32(answers.count)) + 1)
-                while answers[answersIndex - 1] == newQuestion.correctAnswer {
-                    answersIndex = Int(arc4random_uniform(UInt32(answers.count)) + 1)
+                var choice = getNewChoice()
+                while choice == newQuestion.correctAnswer || usedChoices.contains(choice) {
+                    choice = getNewChoice()
                 }
                 do {
-                    button.setTitle(answers[answersIndex - 1], for: .normal)
+                    button.setTitle(choice, for: .normal)
+                    usedChoices.append(choice)
+                    print("usedChoices")
+                    print(usedChoices)
                 }
                 
             }
         }
+    }
+    
+    //sets a new choice
+    func getNewChoice() -> String {
+        let answersIndex = Int(arc4random_uniform(UInt32(answers.count)))
+        print("answersIndex")
+        print(answersIndex)
+        let choice = answers[answersIndex]
+        return choice
     }
     
     //generates an array of random numbers, the size is the amount of questions in a game

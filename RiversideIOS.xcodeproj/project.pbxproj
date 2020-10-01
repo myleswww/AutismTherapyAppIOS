@@ -116,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				FD974F032511225E006383D6 /* Info.plist */,
+				FD974F002511225E006383D6 /* LaunchScreen.storyboard */,
 				FDEF42CB2511A42C00B27324 /* Model */,
 				FD974F2D25114BB5006383D6 /* View */,
 				FD974F2E25114BCA006383D6 /* Controller */,
@@ -169,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				FD974EFB2511225D006383D6 /* RiversideIOS.xcdatamodeld */,
-				FD974F002511225E006383D6 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
