@@ -42,9 +42,12 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = userPickedImage
             
+            //convert the image to greyscale
+            let monoImage = userPickedImage.mono
+            
             //convert image to a core image image, which will allow us to use Vision and CoreML frameworks
             //'guard' statements are used as error handling..kind of like try and catches
-            guard let ciImage = CIImage(image: userPickedImage) else {
+            guard let ciImage = CIImage(image: monoImage) else {
                 fatalError("could not convert image to a CI Image")
             }
             
