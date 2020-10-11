@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4585152513BC3D00348750 /* QuizLogic.swift */; };
+		FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */; };
+		FD67DC682533109500D565BD /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD67DC672533109400D565BD /* CNNEmotions.mlmodel */; };
 		FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974EF22511225D006383D6 /* AppDelegate.swift */; };
 		FD974EF52511225D006383D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974EF42511225D006383D6 /* SceneDelegate.swift */; };
 		FD974EF72511225D006383D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974EF62511225D006383D6 /* ViewController.swift */; };
 		FD974EFA2511225D006383D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD974EF82511225D006383D6 /* Main.storyboard */; };
-		FD974EFD2511225D006383D6 /* RiversideIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD974EFB2511225D006383D6 /* RiversideIOS.xcdatamodeld */; };
 		FD974EFF2511225E006383D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD974EFE2511225E006383D6 /* Assets.xcassets */; };
 		FD974F022511225E006383D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD974F002511225E006383D6 /* LaunchScreen.storyboard */; };
 		FD974F0D2511225F006383D6 /* RiversideIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F0C2511225F006383D6 /* RiversideIOSTests.swift */; };
@@ -21,6 +22,7 @@
 		FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */; };
 		FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2925113A00006383D6 /* QuizGameViewController.swift */; };
 		FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */; };
+		FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE1EBE2533372500116A6F /* GreyScale.swift */; };
 		FDEF42CD2511A48B00B27324 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CC2511A48B00B27324 /* Question.swift */; };
 		FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CE2511A60000B27324 /* QuestionBank.swift */; };
 /* End PBXBuildFile section */
@@ -44,12 +46,13 @@
 
 /* Begin PBXFileReference section */
 		FD4585152513BC3D00348750 /* QuizLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic.swift; sourceTree = "<group>"; };
+		FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreViewController.swift; sourceTree = "<group>"; };
+		FD67DC672533109400D565BD /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FD974EEF2511225D006383D6 /* RiversideIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiversideIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD974EF22511225D006383D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD974EF42511225D006383D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FD974EF62511225D006383D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD974EF92511225D006383D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FD974EFC2511225D006383D6 /* RiversideIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RiversideIOS.xcdatamodel; sourceTree = "<group>"; };
 		FD974EFE2511225E006383D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD974F012511225E006383D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD974F032511225E006383D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothLandingViewController.swift; sourceTree = "<group>"; };
 		FD974F2925113A00006383D6 /* QuizGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameViewController.swift; sourceTree = "<group>"; };
 		FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothGameViewController.swift; sourceTree = "<group>"; };
+		FDCE1EBE2533372500116A6F /* GreyScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreyScale.swift; path = RiversideIOS/Controller/GreyScale.swift; sourceTree = SOURCE_ROOT; };
 		FDEF42CC2511A48B00B27324 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FDEF42CE2511A60000B27324 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,8 +159,10 @@
 		FD974F2E25114BCA006383D6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FDCE1EBE2533372500116A6F /* GreyScale.swift */,
 				FD974EF22511225D006383D6 /* AppDelegate.swift */,
 				FD974EF42511225D006383D6 /* SceneDelegate.swift */,
+				FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */,
 				FD974F2925113A00006383D6 /* QuizGameViewController.swift */,
 				FD974EF62511225D006383D6 /* ViewController.swift */,
 				FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */,
@@ -169,7 +175,7 @@
 		FD974F2F25114C9A006383D6 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				FD974EFB2511225D006383D6 /* RiversideIOS.xcdatamodeld */,
+				FD67DC672533109400D565BD /* CNNEmotions.mlmodel */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -318,13 +324,15 @@
 				FD974EF72511225D006383D6 /* ViewController.swift in Sources */,
 				FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */,
 				FD974F262511257F006383D6 /* QuizLandingViewController.swift in Sources */,
+				FD67DC682533109500D565BD /* CNNEmotions.mlmodel in Sources */,
 				FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */,
 				FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */,
 				FDEF42CD2511A48B00B27324 /* Question.swift in Sources */,
-				FD974EFD2511225D006383D6 /* RiversideIOS.xcdatamodeld in Sources */,
 				FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */,
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
 				FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */,
+				FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */,
+				FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */,
 				FD974EF52511225D006383D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,19 +664,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FD974EFB2511225D006383D6 /* RiversideIOS.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FD974EFC2511225D006383D6 /* RiversideIOS.xcdatamodel */,
-			);
-			currentVersion = FD974EFC2511225D006383D6 /* RiversideIOS.xcdatamodel */;
-			path = RiversideIOS.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FD974EE72511225D006383D6 /* Project object */;
 }
