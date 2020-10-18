@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD04B1CA253C9BEE006E9E30 /* FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD04B1C9253C9BEE006E9E30 /* FaceDetection.swift */; };
 		FD357C4625333B6800F73B0C /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */; };
 		FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4585152513BC3D00348750 /* QuizLogic.swift */; };
 		FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD04B1C9253C9BEE006E9E30 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
 		FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FD4585152513BC3D00348750 /* QuizLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic.swift; sourceTree = "<group>"; };
 		FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				FD974F2925113A00006383D6 /* QuizGameViewController.swift */,
 				FD974EF62511225D006383D6 /* ViewController.swift */,
 				FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */,
+				FD04B1C9253C9BEE006E9E30 /* FaceDetection.swift */,
 				FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */,
 				FD974F252511257F006383D6 /* QuizLandingViewController.swift */,
 			);
@@ -329,6 +332,7 @@
 				FDEF42CD2511A48B00B27324 /* Question.swift in Sources */,
 				FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */,
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
+				FD04B1CA253C9BEE006E9E30 /* FaceDetection.swift in Sources */,
 				FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */,
 				FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */,
 				FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */,

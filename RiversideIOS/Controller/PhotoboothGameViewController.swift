@@ -11,6 +11,7 @@ import CoreML
 import Vision
 
 
+
 class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var confidenceLabel: UILabel!
@@ -23,6 +24,11 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     //finds the bounding boxes of faces in the image
     lazy var faceDetectionRequest = VNDetectFaceRectanglesRequest(completionHandler: self.onFacesDetected)
     let faceDetectionRequestHandler = VNSequenceRequestHandler()
+    
+    var height: CGFloat = 0.0
+    var width: CGFloat = 0.0
+    var x: CGFloat = 0.0
+    var y: CGFloat = 0.0
     
     //MARK: View Did Load
     override func viewDidLoad() {
@@ -48,6 +54,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             
             //convert the image to greyscale
             let monoImage = userPickedImage.mono
+            imageView.image = monoImage
             
             //convert image to a core image image, which will allow us to use Vision and CoreML frameworks
             //'guard' statements are used as error handling..kind of like try and catches
@@ -56,6 +63,12 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             }
             
             detectFaces(on: ciImage)
+            
+            print(height)
+            print(width)
+            print(x)
+            print(y)
+            
             
             classifyEmotion(image: ciImage)
         }
@@ -85,12 +98,11 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             for face in faces {
                 print("Found face at \(face.boundingBox)")
                 
-                let width = face.boundingBox.width
-                let height = face.boundingBox.height
-                let x = face.boundingBox.origin.x
-                let y = (1 - face.boundingBox.origin.y) - height
+                width = face.boundingBox.width
+                height = face.boundingBox.height
+                x = face.boundingBox.origin.x
+                y = (1 - face.boundingBox.origin.y) - height
                 
-                let rect = CGRect(x: x, y: y, width: width, height: height)
             }
         }
     
@@ -102,7 +114,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
          let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
          
          //perform the request
-         DispatchQueue.global(qos: .userInitiated).async {
+         DispatchQueue.global(qos: .userInitiated).sync {
              do{
                  try handler.perform([self.faceDetectionRequest])
              }
