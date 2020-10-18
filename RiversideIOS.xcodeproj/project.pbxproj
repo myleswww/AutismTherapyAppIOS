@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD357C4625333B6800F73B0C /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */; };
+		FD357C4E2533456500F73B0C /* model_v6.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD357C4D2533456500F73B0C /* model_v6.mlmodel */; };
+		FD357C562533460A00F73B0C /* EmotionClassificator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD357C552533460A00F73B0C /* EmotionClassificator.mlmodel */; };
 		FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4585152513BC3D00348750 /* QuizLogic.swift */; };
 		FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */; };
 		FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974EF22511225D006383D6 /* AppDelegate.swift */; };
@@ -22,6 +23,8 @@
 		FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */; };
 		FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2925113A00006383D6 /* QuizGameViewController.swift */; };
 		FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */; };
+		FDB75E8C253C446E00C704EB /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FDB75E8B253C446D00C704EB /* CNNEmotions.mlmodel */; };
+		FDB75E91253C46E500C704EB /* ExpressionRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FDB75E90253C46E500C704EB /* ExpressionRecognitionModel.mlmodel */; };
 		FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE1EBE2533372500116A6F /* GreyScale.swift */; };
 		FDEF42CD2511A48B00B27324 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CC2511A48B00B27324 /* Question.swift */; };
 		FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CE2511A60000B27324 /* QuestionBank.swift */; };
@@ -45,7 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		FD357C4D2533456500F73B0C /* model_v6.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = model_v6.mlmodel; sourceTree = "<group>"; };
+		FD357C552533460A00F73B0C /* EmotionClassificator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = EmotionClassificator.mlmodel; sourceTree = "<group>"; };
 		FD4585152513BC3D00348750 /* QuizLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic.swift; sourceTree = "<group>"; };
 		FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreViewController.swift; sourceTree = "<group>"; };
 		FD974EEF2511225D006383D6 /* RiversideIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiversideIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +70,8 @@
 		FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothLandingViewController.swift; sourceTree = "<group>"; };
 		FD974F2925113A00006383D6 /* QuizGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameViewController.swift; sourceTree = "<group>"; };
 		FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothGameViewController.swift; sourceTree = "<group>"; };
+		FDB75E8B253C446D00C704EB /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CNNEmotions.mlmodel; path = ../../../../Downloads/CNNEmotions.mlmodel; sourceTree = "<group>"; };
+		FDB75E90253C46E500C704EB /* ExpressionRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ExpressionRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		FDCE1EBE2533372500116A6F /* GreyScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreyScale.swift; path = RiversideIOS/Controller/GreyScale.swift; sourceTree = SOURCE_ROOT; };
 		FDEF42CC2511A48B00B27324 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FDEF42CE2511A60000B27324 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
@@ -175,7 +181,10 @@
 		FD974F2F25114C9A006383D6 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */,
+				FD357C552533460A00F73B0C /* EmotionClassificator.mlmodel */,
+				FDB75E90253C46E500C704EB /* ExpressionRecognitionModel.mlmodel */,
+				FDB75E8B253C446D00C704EB /* CNNEmotions.mlmodel */,
+				FD357C4D2533456500F73B0C /* model_v6.mlmodel */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -321,18 +330,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD357C562533460A00F73B0C /* EmotionClassificator.mlmodel in Sources */,
 				FD974EF72511225D006383D6 /* ViewController.swift in Sources */,
 				FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */,
+				FD357C4E2533456500F73B0C /* model_v6.mlmodel in Sources */,
 				FD974F262511257F006383D6 /* QuizLandingViewController.swift in Sources */,
 				FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */,
+				FDB75E8C253C446E00C704EB /* CNNEmotions.mlmodel in Sources */,
 				FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */,
 				FDEF42CD2511A48B00B27324 /* Question.swift in Sources */,
 				FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */,
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
 				FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */,
+				FDB75E91253C46E500C704EB /* ExpressionRecognitionModel.mlmodel in Sources */,
 				FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */,
 				FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */,
-				FD357C4625333B6800F73B0C /* CNNEmotions.mlmodel in Sources */,
 				FD974EF52511225D006383D6 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
