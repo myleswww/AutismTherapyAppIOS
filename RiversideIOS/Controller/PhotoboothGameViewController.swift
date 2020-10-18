@@ -19,6 +19,10 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var resultsLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
+    //finds the bounding boxes of faces in the image
+    lazy var faceDetectionRequest = VNDetectFaceRectanglesRequest(completionHandler: self.onFacesDetected)
+    let faceDetectionRequestHandler = VNSequenceRequestHandler()
+    
     
     //finds the bounding boxes of faces in the image
     lazy var faceDetectionRequest = VNDetectFaceRectanglesRequest(completionHandler: self.onFacesDetected)
@@ -62,12 +66,18 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
                 fatalError("could not convert image to a CI Image")
             }
             
+<<<<<<< Updated upstream
             let croppedCIImage = cropImage(image: ciImage, rect: rect)
             
             imageView.image = UIImage(ciImage: croppedCIImage)
             
             
         
+=======
+            detectFaces(on: ciImage)
+            
+            classifyEmotion(image: ciImage)
+>>>>>>> Stashed changes
         }
         
         //dismiss the image picker and go back to the view controller
@@ -76,7 +86,54 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
        
     }
     
+    //MARK: onFacesDetected
+    //completion handler. prints the result to the console upon face detection
+    func onFacesDetected(request: VNRequest, error: Error?) {
+        guard let faces = request.results as? [VNFaceObservation] else {
+            return
+        }
+        
+        for face in faces {
+            print("Found face at \(face.boundingBox)")
+            
+            let width = face.boundingBox.width
+            let height = face.boundingBox.height
+            let x = face.boundingBox.origin.x
+            let y = (1 - face.boundingBox.origin.y) - height
+            
+            let rect = CGRect(x: x, y: y, width: width, height: height)
+        }
+    }
     
+    
+    
+    
+    //MARK: detectFaces
+        func detectFaces(on image: CIImage){
+            //this handler performs different operations on a single image
+            let handler = VNImageRequestHandler(cgImage: image.cgImage!, options: [:])
+            
+            //perform the request
+            DispatchQueue.global(qos: .userInitiated).async {
+                do{
+                    try handler.perform([self.faceDetectionRequest])
+                }
+                catch {
+                    print(error)
+                }
+            }
+        }
+    
+    
+    //MARK: cropImage
+    func cropImage(image: CIImage, rect: CGRect) -> CIImage {
+            let croppedImage = image.cropped(to: rect)
+            return croppedImage
+        }
+    
+    
+    
+<<<<<<< Updated upstream
     func cropImage(image: CIImage, rect: CGRect) -> CIImage {
         let croppedImage = image.cropped(to: rect)
         return croppedImage
@@ -122,6 +179,8 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
   
     
     
+=======
+>>>>>>> Stashed changes
     //MARK: classifyEmotion
     func classifyEmotion(image: CIImage) {
         
