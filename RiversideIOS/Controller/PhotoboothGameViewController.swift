@@ -29,6 +29,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     var width: CGFloat = 0.0
     var x: CGFloat = 0.0
     var y: CGFloat = 0.0
+    var boundingBox: CGRect!
     
     //MARK: View Did Load
     override func viewDidLoad() {
@@ -54,22 +55,37 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             
             //convert the image to greyscale
             let monoImage = userPickedImage.mono
+        
+            
+            let centeredImage = faceCenterImage(monoImage)
+            
+            let size = CGSize(width: 48, height: 48)
+            let finishedImage = resizeImage(image: centeredImage, targetSize: size)
+            
             imageView.image = monoImage
+            
+            
+            //imageView.image = monoImage
             
             //convert image to a core image image, which will allow us to use Vision and CoreML frameworks
             //'guard' statements are used as error handling..kind of like try and catches
-            guard let ciImage = CIImage(image: monoImage) else {
+            guard let ciImage = CIImage(image: finishedImage) else {
                 fatalError("could not convert image to a CI Image")
             }
             
-            detectFaces(on: ciImage)
-            
-            print(height)
-            print(width)
-            print(x)
-            print(y)
             
             
+        
+//
+//            detectFaces(on: ciImage)
+//
+//            print(height)
+//            print(width)
+//            print(x)
+//            print(y)
+//
+//
+//
             classifyEmotion(image: ciImage)
         }
         
@@ -80,14 +96,6 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     
     
     
-    
-    //MARK: cropImage
-    func cropImage(image: CIImage, rect: CGRect) -> CIImage {
-            let croppedImage = image.cropped(to: rect)
-            return croppedImage
-        }
-    
-    
     //MARK: onFacesDetected
         //completion handler. prints the result to the console upon face detection
         func onFacesDetected(request: VNRequest, error: Error?) {
@@ -95,16 +103,17 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
                 return
             }
             
+            
             for face in faces {
                 print("Found face at \(face.boundingBox)")
-                
-                width = face.boundingBox.width
-                height = face.boundingBox.height
-                x = face.boundingBox.origin.x
-                y = (1 - face.boundingBox.origin.y) - height
-                
+                boundingBox = face.boundingBox
             }
         }
+    
+    
+    
+    
+   
     
     
     
@@ -133,7 +142,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
         //the guard handles the nil and sends an error message.
         //VNCoreML Model is part of the Vision framework, and will allow us to analyze images.
         let config = MLModelConfiguration()
-            guard let model = try? VNCoreMLModel(for: CNNEmotions(configuration: config).model) else {
+            guard let model = try? VNCoreMLModel(for: ExpressionRecognitionModel(configuration: config).model) else {
             fatalError("Loading CoreML model failed.")
         }
         
@@ -167,11 +176,65 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
         
     }
     
+ 
+    
     //MARK: Camera Button Pressed
     @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
         print("Camera button pressed.")
         present(imagePicker, animated: true, completion: nil)
     }
     
+    
+    func faceCenterImage(_ image: UIImage) -> UIImage {
+  
+        guard let uncroppedCgImage = image.cgImage else {
+            imageView.image = image
+            return image
+        }
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            uncroppedCgImage.faceCrop { [weak self] result in
+                switch result {
+                case.success(let cgImage):
+                    DispatchQueue.main.async {
+                        self?.imageView.image = UIImage(cgImage: cgImage, scale: 0.0, orientation: .right)
+                    }
+                case.notFound, .failure( _):
+                    DispatchQueue.main.async {
+                        self?.imageView.image = image
+                    }
+                }
+        }
+            
+    }
+        return image
+    }
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+       let size = image.size
 
+       let widthRatio  = targetSize.width  / size.width
+       let heightRatio = targetSize.height / size.height
+
+       // Figure out what our orientation is, and use that to form the rectangle
+       var newSize: CGSize
+       if(widthRatio > heightRatio) {
+           newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+       } else {
+           newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+       }
+
+       // This is the rect that we've calculated out and this is what is actually used below
+       let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+       // Actually do the resizing to the rect using the ImageContext stuff
+       UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+       image.draw(in: rect)
+       let newImage = UIGraphicsGetImageFromCurrentImageContext()
+       UIGraphicsEndImageContext()
+
+       return newImage!
+   }
+    
+   
 }

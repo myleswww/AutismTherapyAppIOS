@@ -6,137 +6,109 @@
 //  Copyright © 2020 Butler University EPICS. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Vision
+import UIKit
 
-extension NSObject: ImageCroppable {}
-extension CGImage: ImageCroppable {}
-public protocol ImageCroppable {}
-
-/**
- This enumeration is for identification of detection type
- 
- - face: for cropping faces
- - barcode: for croping barcodes
- - text: for cropping text rectangles
- */
-public enum DetectionType {
-    case face
-    case barcode
-    case text
-}
-
-/**
- This enumeration is for identification of request type
- 
- - success: successfuly cropted objects
- - notFound: not found some object of `DetectionType` in image
- - failure: failed with error
- */
-public enum ImageDetectResult<T> {
-    case success([T])
-    case notFound
-    case failure(Error)
-}
-
-public struct ImageDetect<T> {
-    let detectable: T
-    init(_ detectable: T) {
-        self.detectable = detectable
-    }
-}
-
-public extension ImageCroppable {
-    var detector: ImageDetect<Self> {
-        return ImageDetect(self)
-    }
-}
-
-public extension ImageDetect where T: CGImage {
-    
-    /**
-     To crop object in image
-     - parameter type: type of object that must be croped
-     - parameter completion: callbeck with `ImageDetectResult<T>` with error or success response
-     */
-    func crop(type: DetectionType, completion: @escaping (ImageDetectResult<CGImage>) -> Void) {
-        switch type {
-        case .face:
-            cropFace(completion)
-        default:
-            cropFace(completion)
-            break
-        }
-    }
-    
-    private func cropFace(_ completion: @escaping (ImageDetectResult<CGImage>) -> Void) {
-        guard #available(iOS 11.0, *) else {
-            return
-        }
+public extension CGImage {
+    @available(iOS 11.0, *)
+    func faceCrop(margin: CGFloat = 200, completion: @escaping (FaceCropResult) -> Void) {
         let req = VNDetectFaceRectanglesRequest { request, error in
-            guard error == nil else {
-                completion(.failure(error!))
+            if let error = error {
+                completion(.failure(error))
                 return
             }
             
-            let faceImages = request.results?.map({ result -> CGImage? in
-                guard let face = result as? VNFaceObservation else { return nil }
-                let faceImage = self.cropImage(object: face)
-                return faceImage
-            }).compactMap { $0 }
-            
-            guard let result = faceImages, result.count > 0 else {
+            guard let results = request.results else {
                 completion(.notFound)
                 return
             }
             
+            var faces: [VNFaceObservation] = []
+            for result in results {
+                guard let face = result as? VNFaceObservation else { continue }
+                faces.append(face)
+            }
+            
+            let croppingRect = self.getCroppingRect(for: faces, margin: margin)
+            let faceImage = self.cropping(to: croppingRect)
+            
+            guard let result = faceImage else {
+                completion(.notFound)
+                return
+            }
             completion(.success(result))
         }
         
         do {
-            try VNImageRequestHandler(cgImage: self.detectable, options: [:]).perform([req])
+            try VNImageRequestHandler(cgImage: self, options: [:]).perform([req])
         } catch let error {
             completion(.failure(error))
         }
     }
     
-    
-    
-    
-    
-    private func cropImage(object: VNDetectedObjectObservation) -> CGImage? {
-        let width = object.boundingBox.width * CGFloat(self.detectable.width)
-        let height = object.boundingBox.height * CGFloat(self.detectable.height)
-        let x = object.boundingBox.origin.x * CGFloat(self.detectable.width)
-        let y = (1 - object.boundingBox.origin.y) * CGFloat(self.detectable.height) - height
+    @available(iOS 11.0, *)
+    private func getCroppingRect(for faces: [VNFaceObservation], margin: CGFloat) -> CGRect {
+        var totalX = CGFloat(0)
+        var totalY = CGFloat(0)
+        var totalW = CGFloat(0)
+        var totalH = CGFloat(0)
+        var minX = CGFloat.greatestFiniteMagnitude
+        var minY = CGFloat.greatestFiniteMagnitude
+        let numFaces = CGFloat(faces.count)
         
-        let croppingRect = CGRect(x: x, y: y, width: width, height: height)
-        let image = self.detectable.cropping(to: croppingRect)
-        return image
+        for face in faces {
+            let w = face.boundingBox.width * CGFloat(width)
+            let h = face.boundingBox.height * CGFloat(height)
+            let x = face.boundingBox.origin.x * CGFloat(width)
+            let y = (1 - face.boundingBox.origin.y) * CGFloat(height) - h
+            totalX += x
+            totalY += y
+            totalW += w
+            totalH += h
+            minX = .minimum(minX, x)
+            minY = .minimum(minY, y)
+        }
+        
+        let avgX = totalX / numFaces
+        let avgY = totalY / numFaces
+        let avgW = totalW / numFaces
+        let avgH = totalH / numFaces
+        
+        let offset = margin + avgX - minX
+        
+        return CGRect(x: avgX - offset, y: avgY - offset, width: avgW + (offset * 2), height: avgH + (offset * 2))
     }
 }
 
-public extension ImageDetect where T: UIImage {
-    
-    func crop(type: DetectionType, completion: @escaping (ImageDetectResult<UIImage>) -> Void) {
-        guard #available(iOS 11.0, *) else {
-            return
-        }
-        
-        self.detectable.cgImage!.detector.crop(type: type) { result in
-            switch result {
-            case .success(let cgImages):
-                let faces = cgImages.map { cgImage -> UIImage in
-                    return UIImage(cgImage: cgImage)
-                }
-                completion(.success(faces))
-            case .notFound:
-                completion(.notFound)
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-        
-    }
-    
+public enum FaceCropResult {
+    case success(CGImage)
+    case notFound
+    case failure(Error)
+}
+
+func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+   let size = image.size
+
+   let widthRatio  = targetSize.width  / size.width
+   let heightRatio = targetSize.height / size.height
+
+   // Figure out what our orientation is, and use that to form the rectangle
+   var newSize: CGSize
+   if(widthRatio > heightRatio) {
+       newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+   } else {
+       newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+   }
+
+   // This is the rect that we've calculated out and this is what is actually used below
+   let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+
+   // Actually do the resizing to the rect using the ImageContext stuff
+   UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+   image.draw(in: rect)
+   let newImage = UIGraphicsGetImageFromCurrentImageContext()
+   UIGraphicsEndImageContext()
+
+   return newImage!
 }
