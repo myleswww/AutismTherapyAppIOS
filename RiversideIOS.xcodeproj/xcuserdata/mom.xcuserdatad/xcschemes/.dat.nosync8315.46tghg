@@ -6,24 +6,15 @@
 	<dict>
 		<key>EmotionModelTraining (Playground) 1.xcscheme</key>
 		<dict>
-			<key>isShown</key>
-			<false/>
 			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>EmotionModelTraining (Playground) 2.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>5</integer>
 		</dict>
 		<key>EmotionModelTraining (Playground).xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>4</integer>
 		</dict>
 		<key>MyPlayground (Playground) 1.xcscheme</key>
 		<dict>
@@ -49,25 +40,7 @@
 		<key>RiversideIOS.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>FD974EEE2511225D006383D6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD974F072511225F006383D6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD974F122511225F006383D6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>1</integer>
 		</dict>
 	</dict>
 </dict>

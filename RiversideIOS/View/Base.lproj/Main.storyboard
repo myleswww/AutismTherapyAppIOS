@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -33,6 +33,15 @@
                                     <action selector="photoboothButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KT5-im-2db"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lf4-PB-6ZK">
+                                <rect key="frame" x="145" y="375" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Mindfulness"/>
+                                <connections>
+                                    <action selector="mindfulnessButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fgF-zY-gLr"/>
+                                    <segue destination="ImD-50-sSA" kind="show" identifier="MainToMindful" id="fps-mS-Rif"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -46,6 +55,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-436" y="-70"/>
+        </scene>
+        <!--Breathe View Controller-->
+        <scene sceneID="t7z-HC-Cap">
+            <objects>
+                <hostingController modalPresentationStyle="fullScreen" id="ImD-50-sSA" customClass="BreatheViewController" customModule="RiversideIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Jnk-Yx-ege"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gUf-eP-YLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-436" y="736"/>
         </scene>
         <!--Photobooth Landing View Controller-->
         <scene sceneID="Uag-NB-Xkf">

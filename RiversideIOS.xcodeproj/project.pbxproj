@@ -11,6 +11,7 @@
 		FD299D7A253D10D800083886 /* ExpressionRecognitionModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD299D79253D10D800083886 /* ExpressionRecognitionModel.mlmodel */; };
 		FD357C4625333B6800F73B0C /* CNNEmotions.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */; };
 		FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4585152513BC3D00348750 /* QuizLogic.swift */; };
+		FD52BF27255B2ED500820A23 /* BreatheView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD52BF26255B2ED500820A23 /* BreatheView.swift */; };
 		FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */; };
 		FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974EF22511225D006383D6 /* AppDelegate.swift */; };
 		FD974EF52511225D006383D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974EF42511225D006383D6 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 		FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */; };
 		FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2925113A00006383D6 /* QuizGameViewController.swift */; };
 		FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */; };
+		FD9DE492255B8BC2000A2A61 /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */; };
 		FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE1EBE2533372500116A6F /* GreyScale.swift */; };
 		FDEF42CD2511A48B00B27324 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CC2511A48B00B27324 /* Question.swift */; };
 		FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CE2511A60000B27324 /* QuestionBank.swift */; };
@@ -47,10 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD0219242541D10200EE8C40 /* EmotionModelTraining.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = EmotionModelTraining.playground; path = "../../Library/Autosave Information/EmotionModelTraining.playground"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		FD04B1C9253C9BEE006E9E30 /* FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetection.swift; sourceTree = "<group>"; };
 		FD299D79253D10D800083886 /* ExpressionRecognitionModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ExpressionRecognitionModel.mlmodel; path = ../../../../Downloads/ExpressionRecognitionModel.mlmodel; sourceTree = "<group>"; };
 		FD357C4525333B6800F73B0C /* CNNEmotions.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CNNEmotions.mlmodel; sourceTree = "<group>"; };
 		FD4585152513BC3D00348750 /* QuizLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLogic.swift; sourceTree = "<group>"; };
+		FD52BF26255B2ED500820A23 /* BreatheView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheView.swift; sourceTree = "<group>"; };
 		FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalScoreViewController.swift; sourceTree = "<group>"; };
 		FD974EEF2511225D006383D6 /* RiversideIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiversideIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD974EF22511225D006383D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothLandingViewController.swift; sourceTree = "<group>"; };
 		FD974F2925113A00006383D6 /* QuizGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameViewController.swift; sourceTree = "<group>"; };
 		FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothGameViewController.swift; sourceTree = "<group>"; };
+		FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
 		FDCE1EBE2533372500116A6F /* GreyScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreyScale.swift; path = RiversideIOS/Controller/GreyScale.swift; sourceTree = SOURCE_ROOT; };
 		FDEF42CC2511A48B00B27324 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FDEF42CE2511A60000B27324 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
@@ -103,6 +108,7 @@
 		FD974EE62511225D006383D6 = {
 			isa = PBXGroup;
 			children = (
+				FD0219242541D10200EE8C40 /* EmotionModelTraining.playground */,
 				FD974EF12511225D006383D6 /* RiversideIOS */,
 				FD974F0B2511225F006383D6 /* RiversideIOSTests */,
 				FD974F162511225F006383D6 /* RiversideIOSUITests */,
@@ -155,7 +161,9 @@
 			isa = PBXGroup;
 			children = (
 				FD974EFE2511225E006383D6 /* Assets.xcassets */,
+				FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */,
 				FD974EF82511225D006383D6 /* Main.storyboard */,
+				FD52BF26255B2ED500820A23 /* BreatheView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,11 +342,13 @@
 				FD4585162513BC3D00348750 /* QuizLogic.swift in Sources */,
 				FDEF42CD2511A48B00B27324 /* Question.swift in Sources */,
 				FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */,
+				FD52BF27255B2ED500820A23 /* BreatheView.swift in Sources */,
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
 				FD04B1CA253C9BEE006E9E30 /* FaceDetection.swift in Sources */,
 				FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */,
 				FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */,
 				FD299D7A253D10D800083886 /* ExpressionRecognitionModel.mlmodel in Sources */,
+				FD9DE492255B8BC2000A2A61 /* BreatheViewController.swift in Sources */,
 				FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */,
 				FD357C4625333B6800F73B0C /* CNNEmotions.mlmodel in Sources */,
 				FD974EF52511225D006383D6 /* SceneDelegate.swift in Sources */,
@@ -519,6 +529,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39H32J778A;
 				INFOPLIST_FILE = RiversideIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39H32J778A;
 				INFOPLIST_FILE = RiversideIOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -40,5 +40,11 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "MainToPhotobooth", sender: self)
     }
     
+    @IBAction func mindfulnessButtonPressed(_ sender: UIButton) {
+        print("Mindfullness button pressed.")
+        
+        //seque into the photobooth view controller
+        self.performSegue(withIdentifier: "MainToMindful", sender: self)
+    }
 }
 

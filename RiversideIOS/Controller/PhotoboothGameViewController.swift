@@ -62,14 +62,14 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             let size = CGSize(width: 48, height: 48)
             let finishedImage = resizeImage(image: centeredImage, targetSize: size)
             
-            imageView.image = monoImage
+            imageView.image = centeredImage
             
             
             //imageView.image = monoImage
             
             //convert image to a core image image, which will allow us to use Vision and CoreML frameworks
             //'guard' statements are used as error handling..kind of like try and catches
-            guard let ciImage = CIImage(image: finishedImage) else {
+            guard let ciImage = CIImage(image: centeredImage) else {
                 fatalError("could not convert image to a CI Image")
             }
             
@@ -142,7 +142,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
         //the guard handles the nil and sends an error message.
         //VNCoreML Model is part of the Vision framework, and will allow us to analyze images.
         let config = MLModelConfiguration()
-            guard let model = try? VNCoreMLModel(for: ExpressionRecognitionModel(configuration: config).model) else {
+            guard let model = try? VNCoreMLModel(for: CNNEmotions(configuration: config).model) else {
             fatalError("Loading CoreML model failed.")
         }
         
