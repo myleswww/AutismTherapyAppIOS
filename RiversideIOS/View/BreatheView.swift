@@ -26,10 +26,6 @@ struct BreatheView: View {
     @State private var timer: Timer?
     @State private var selectedSecs = 600
     
-    var foreverAnimation: Animation {
-        Animation.linear(duration: 16).repeatForever(autoreverses: false)
-    }
-    
     
     let grape = Color(#colorLiteral(red: 0.5818830132, green: 0.2156915367, blue: 1, alpha: 1))
     let aqua = Color(#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1))
@@ -37,11 +33,6 @@ struct BreatheView: View {
     let snow = Color(#colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1))
     let screenBackground = Color(#colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1))
     let fillGradient = LinearGradient(gradient: Gradient(colors: [Color.purple, Color.blue]), startPoint: .bottomLeading, endPoint: .topTrailing)
-    
-    var repeatingAnimation: Animation {
-        Animation
-            .linear(duration: 600).repeatForever(autoreverses: false)
-    }
     
     var body: some View {
         ZStack {
@@ -75,28 +66,58 @@ struct BreatheView: View {
                     .scaleEffect(hold ? 1 : 1)
                     .scaleEffect(breathOut ? 0.8 : 1)
                     .onAppear() {
-                
+                            
                         withAnimation(Animation.linear(duration: 4)){
                         self.breathIn.toggle()
-                        
+                            print("breathing in...")
                         }
                         
-                        withAnimation(Animation.linear(duration: 3).delay(4)){
+                        withAnimation(Animation.linear(duration: 4).delay(4)){
                         self.hold.toggle()
+                            print("holding...")
                         }
                         
                         withAnimation(Animation.linear(duration: 4).delay(8)){
                         self.breathOut.toggle()
-                        
+                            print("breathing out...")
                         }
                         
-                        withAnimation(Animation.linear(duration: 3).delay(12)){
+                        withAnimation(Animation.linear(duration: 4).delay(12)){
                         self.hold.toggle()
+                            print("holding...")
                        
                         }
                         
-                    }
-                }
+                        _ = Timer.scheduledTimer(withTimeInterval: 16, repeats: true, block: {timer in
+                            
+                            breathIn = false
+                            breathOut = false
+                            hold = true
+                            
+                            withAnimation(Animation.linear(duration: 4)){
+                            self.breathIn.toggle()
+                                print("breathing in...")
+                            }
+                            
+                            withAnimation(Animation.linear(duration: 4).delay(4)){
+                            self.hold.toggle()
+                                print("holding...")
+                            }
+                            
+                            withAnimation(Animation.linear(duration: 4).delay(8)){
+                            self.breathOut.toggle()
+                                print("breathing out...")
+                            }
+                            
+                            withAnimation(Animation.linear(duration: 4).delay(12)){
+                            self.hold.toggle()
+                                print("holding...")
+                           
+                            }
+                            
+                        })
+                    
+                        }
                   
               
                 ZStack {
@@ -106,6 +127,7 @@ struct BreatheView: View {
                         .opacity(displayBreathOut ? 1 : 0)
                         .opacity(hideBreathOut ? 0 : 1)
                         .onAppear(){
+                            
                             withAnimation(Animation.easeInOut(duration: 0.4).delay(8)) {
                                  self.displayBreathOut.toggle()
                             }
@@ -113,6 +135,23 @@ struct BreatheView: View {
                             withAnimation(Animation.easeInOut(duration: 0.4).delay(12)) {
                                  self.hideBreathOut.toggle()
                             }
+                            
+                            _ = Timer.scheduledTimer(withTimeInterval: 16, repeats: true, block: {timer in
+                                
+                                displayBreathOut = false
+                                hideBreathOut = false
+                                
+                                withAnimation(Animation.easeInOut(duration: 0.4).delay(8)) {
+                                     self.displayBreathOut.toggle()
+                                }
+                                
+                                withAnimation(Animation.easeInOut(duration: 0.4).delay(12)) {
+                                     self.hideBreathOut.toggle()
+                                }
+                                
+                            })
+                            
+                            
                     }
                     
                     Text("Hold") // Second hold
@@ -128,7 +167,23 @@ struct BreatheView: View {
                             withAnimation(Animation.easeInOut(duration: 0.4).delay(16)) {
                                  self.hideSecondHold.toggle()
                             }
-                    }
+                            
+                            _ = Timer.scheduledTimer(withTimeInterval: 16, repeats: true, block: {timer in
+                                                   
+                                displaySecondHold = false
+                                hideSecondHold = false
+                                
+                                withAnimation(Animation.easeInOut(duration: 0.4).delay(12)) {
+                                     self.displaySecondHold.toggle()
+                                }
+                                
+                                withAnimation(Animation.easeInOut(duration: 0.4).delay(16)) {
+                                     self.hideSecondHold.toggle()
+                                }
+                                
+                            })
+    
+                        }
                     
                     Text("Hold")
                         .foregroundColor(snow)
@@ -143,6 +198,19 @@ struct BreatheView: View {
                             withAnimation(Animation.easeInOut(duration: 0.4).delay(8)) {
                                  self.hideHold.toggle()
                             }
+                            
+                            _ = Timer.scheduledTimer(withTimeInterval: 16, repeats: true, block: {timer in
+                                    displayHold = false
+                                    hideHold = false
+                                    
+                                    withAnimation(Animation.easeInOut(duration: 0.4).delay(4)) {
+                                         self.displayHold.toggle()
+                                    }
+                                    
+                                    withAnimation(Animation.easeInOut(duration: 0.4).delay(8)) {
+                                         self.hideHold.toggle()
+                                    }
+                            })
                     }
                     
                     Text("Breath In")
@@ -150,14 +218,24 @@ struct BreatheView: View {
                         .opacity(hideBreathIn ? 0 : 1)
                         .animation(Animation.easeInOut(duration: 0.4).delay(4))
                         .onAppear(){
-                            self.hideBreathIn.toggle()
-                    }
+                            withAnimation(Animation.easeInOut(duration: 0.4).delay(4)){
+                                self.hideBreathIn.toggle()
+                            }
+                            
+                            _ = Timer.scheduledTimer(withTimeInterval: 16, repeats: true, block: {timer in
+                                self.hideBreathIn = false
+                                withAnimation(Animation.easeInOut(duration: 0.4).delay(4)){
+                                    self.hideBreathIn.toggle()
+                                }
+                            })
+                        }
                 }
                     
         }
             
-            
         }
         
     }
-
+    
+    
+}

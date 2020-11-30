@@ -35,12 +35,16 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateImagePicker()
+        
+    }
+    
+    func updateImagePicker(){
         imagePicker.delegate = self
         //implements camera functionality
         imagePicker.sourceType = .camera
         //disables editing by user
         imagePicker.allowsEditing = false
-        
     }
     
     //MARK: delegate: did Finish Picking Media With Info
@@ -55,12 +59,14 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             
             //convert the image to greyscale
             let monoImage = userPickedImage.mono
+            
+            //let contrastedImage = monoImage.increaseContrast
         
             
             let centeredImage = faceCenterImage(monoImage)
             
-            let size = CGSize(width: 48, height: 48)
-            let finishedImage = resizeImage(image: centeredImage, targetSize: size)
+//            let size = CGSize(width: 48, height: 48)
+//            let finishedImage = resizeImage(image: centeredImage, targetSize: size)
             
             imageView.image = centeredImage
             
@@ -73,10 +79,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
                 fatalError("could not convert image to a CI Image")
             }
             
-            
-            
-        
-//
+
 //            detectFaces(on: ciImage)
 //
 //            print(height)
@@ -87,6 +90,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
 //
 //
             classifyEmotion(image: ciImage)
+            updateImagePicker()
         }
         
         //dismiss the image picker and go back to the view controller
@@ -109,12 +113,6 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
                 boundingBox = face.boundingBox
             }
         }
-    
-    
-    
-    
-   
-    
     
     
     //MARK: detectFaces
@@ -157,7 +155,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
             formatter.maximumIntegerDigits = 3
             formatter.maximumFractionDigits = 1
             
-            //print(results)
+            print(results)
             self.resultsLabel.text = results.first?.identifier ?? "null"
             self.confidenceLabel.text = formatter.string(for: results.first?.confidence) ?? "null"
             print(results.first?.identifier ?? "null")
@@ -177,7 +175,6 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     }
     
  
-    
     //MARK: Camera Button Pressed
     @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
         print("Camera button pressed.")
@@ -185,6 +182,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
     }
     
     
+    //MARK: Face Centering
     func faceCenterImage(_ image: UIImage) -> UIImage {
   
         guard let uncroppedCgImage = image.cgImage else {
@@ -210,6 +208,7 @@ class PhotoboothGameViewController: UIViewController, UIImagePickerControllerDel
         return image
     }
     
+    //MARK: IMAGE RESIZE
     func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
        let size = image.size
 

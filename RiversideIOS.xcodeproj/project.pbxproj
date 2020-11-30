@@ -26,7 +26,8 @@
 		FD974F2A25113A00006383D6 /* QuizGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2925113A00006383D6 /* QuizGameViewController.swift */; };
 		FD974F2C25113CA5006383D6 /* PhotoboothGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */; };
 		FD9DE492255B8BC2000A2A61 /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */; };
-		FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE1EBE2533372500116A6F /* GreyScale.swift */; };
+		FDB3BFD72575386000725EC4 /* Contrast.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB3BFD62575386000725EC4 /* Contrast.swift */; };
+		FDCE1EBF2533372500116A6F /* Greyscale.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCE1EBE2533372500116A6F /* Greyscale.swift */; };
 		FDEF42CD2511A48B00B27324 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CC2511A48B00B27324 /* Question.swift */; };
 		FDEF42CF2511A60000B27324 /* QuestionBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF42CE2511A60000B27324 /* QuestionBank.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +76,8 @@
 		FD974F2925113A00006383D6 /* QuizGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameViewController.swift; sourceTree = "<group>"; };
 		FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoboothGameViewController.swift; sourceTree = "<group>"; };
 		FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
-		FDCE1EBE2533372500116A6F /* GreyScale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreyScale.swift; path = RiversideIOS/Controller/GreyScale.swift; sourceTree = SOURCE_ROOT; };
+		FDB3BFD62575386000725EC4 /* Contrast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contrast.swift; sourceTree = "<group>"; };
+		FDCE1EBE2533372500116A6F /* Greyscale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Greyscale.swift; path = RiversideIOS/Greyscale.swift; sourceTree = SOURCE_ROOT; };
 		FDEF42CC2511A48B00B27324 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FDEF42CE2511A60000B27324 /* QuestionBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBank.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				FD974EFE2511225E006383D6 /* Assets.xcassets */,
-				FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */,
 				FD974EF82511225D006383D6 /* Main.storyboard */,
 				FD52BF26255B2ED500820A23 /* BreatheView.swift */,
 			);
@@ -171,14 +172,13 @@
 		FD974F2E25114BCA006383D6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FDCE1EBE2533372500116A6F /* GreyScale.swift */,
+				FD9DE491255B8BC2000A2A61 /* BreatheViewController.swift */,
 				FD974EF22511225D006383D6 /* AppDelegate.swift */,
 				FD974EF42511225D006383D6 /* SceneDelegate.swift */,
 				FD6645D525264F7C001D6489 /* FinalScoreViewController.swift */,
 				FD974F2925113A00006383D6 /* QuizGameViewController.swift */,
 				FD974EF62511225D006383D6 /* ViewController.swift */,
 				FD974F2B25113CA5006383D6 /* PhotoboothGameViewController.swift */,
-				FD04B1C9253C9BEE006E9E30 /* FaceDetection.swift */,
 				FD974F27251125CC006383D6 /* PhotoboothLandingViewController.swift */,
 				FD974F252511257F006383D6 /* QuizLandingViewController.swift */,
 			);
@@ -198,8 +198,11 @@
 			isa = PBXGroup;
 			children = (
 				FDEF42CC2511A48B00B27324 /* Question.swift */,
+				FDB3BFD62575386000725EC4 /* Contrast.swift */,
 				FD4585152513BC3D00348750 /* QuizLogic.swift */,
 				FDEF42CE2511A60000B27324 /* QuestionBank.swift */,
+				FDCE1EBE2533372500116A6F /* Greyscale.swift */,
+				FD04B1C9253C9BEE006E9E30 /* FaceDetection.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -346,7 +349,8 @@
 				FD974EF32511225D006383D6 /* AppDelegate.swift in Sources */,
 				FD04B1CA253C9BEE006E9E30 /* FaceDetection.swift in Sources */,
 				FD974F28251125CC006383D6 /* PhotoboothLandingViewController.swift in Sources */,
-				FDCE1EBF2533372500116A6F /* GreyScale.swift in Sources */,
+				FDB3BFD72575386000725EC4 /* Contrast.swift in Sources */,
+				FDCE1EBF2533372500116A6F /* Greyscale.swift in Sources */,
 				FD299D7A253D10D800083886 /* ExpressionRecognitionModel.mlmodel in Sources */,
 				FD9DE492255B8BC2000A2A61 /* BreatheViewController.swift in Sources */,
 				FD6645D625264F7C001D6489 /* FinalScoreViewController.swift in Sources */,
