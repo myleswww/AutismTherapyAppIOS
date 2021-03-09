@@ -1,2 +1,9 @@
+<<<<<<< Updated upstream
+=======
+*.mlmodel
 
+>>>>>>> Stashed changes
 
+RiversideIOS/CNNEmotions.mlmodel
+*.mlmodel
+*.pod
