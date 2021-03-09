@@ -6,3 +6,4 @@
 
 RiversideIOS/CNNEmotions.mlmodel
 *.mlmodel
+*.pod
